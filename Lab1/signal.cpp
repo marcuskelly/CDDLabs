@@ -1,3 +1,9 @@
+/*!
+@author Mark Kelly
+@date 02/10/17
+@version 1.0
+*/
+
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>

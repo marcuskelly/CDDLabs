@@ -8,4 +8,11 @@ CFILES = signal.cpp Semaphore.cpp
 HFILES = Semaphore.h
 
 All: $(CFILES) $(HFILES)
-	$(CC) $(CFLAGS) *.cpp -o sigexe
+	$(CC) -g $(CFLAGS) $(DEBUGFLAGS) *.cpp -o sigexe
+
+DEBUG: DEBUGFLAGS = -DDEBUG
+DEBUG: ALL
+
+#this is customary and just deletes all .o files
+CLEAN:
+	rm *.o
