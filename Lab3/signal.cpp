@@ -1,30 +1,65 @@
+/*!
+@author Mark Kelly
+@date 02/10/17
+@version 1.0
+*/
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
+#include <string>
 
-void taskOne(std::shared_ptr<Semaphore> theSemaphore){
-  std::cout <<"I ";
-  std::cout << "must ";
-  std::cout << "print ";
-  std::cout << "first"<<std::endl;
-  theSemaphore->Signal();
+
+int shared_Int = 0;
+
+void taskOne(std::shared_ptr<Semaphore> mutex){
+  
+  mutex->Wait();
+  shared_Int++;
+  std::cout << "threadA --- shared_Int : " +  std::to_string(shared_Int) <<std::endl;
+  mutex->Signal(); 
 }
-void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
-  theSemaphore->Wait();
-  std::cout <<"This ";
-  std::cout << "will ";
-  std::cout << "appear ";
-  std::cout << "second"<<std::endl;
+void taskTwo(std::shared_ptr<Semaphore> mutex){
+ 
+  mutex->Wait();
+  shared_Int++;
+  std::cout << "threadB --- shared_Int : " + std::to_string(shared_Int) <<std::endl;
+  mutex->Signal();
+}
+
+void taskThree(std::shared_ptr<Semaphore> mutex){
+  
+  mutex->Wait();
+  shared_Int++;
+   std::cout << "threadC --- shared_Int : " + std::to_string(shared_Int) <<std::endl;
+  mutex->Signal(); 
+}
+
+void taskFour(std::shared_ptr<Semaphore> mutex){
+  
+  mutex->Wait();
+  shared_Int++;
+  std::cout << "threadD --- shared_Int : " + std::to_string(shared_Int) <<std::endl;
+  mutex->Signal(); 
 }
 
 int main(void){
-  std::thread threadOne, threadTwo;
-  std::shared_ptr<Semaphore> sem( new Semaphore);
-  /**< Launch the threads  */
-  threadOne=std::thread(taskTwo,sem);
-  threadTwo=std::thread(taskOne,sem);
+  
+  std::thread threadA, threadB, threadC, threadD;
+  std::shared_ptr<Semaphore> mutex( new Semaphore);
+ 
+  
+  /*< Launch the threads  */
+  /*We do not care which thread executes first (schedular decides), each task will then hold onto sharedInt, ++, then release it  */
+  threadA=std::thread(taskOne,mutex);
+  threadB=std::thread(taskTwo,mutex);
+  threadC=std::thread(taskThree,mutex);
+  threadD=std::thread(taskFour,mutex);
+  
+  
   std::cout << "Launched from the main\n";
-  threadOne.join();
-  threadTwo.join();
+  threadA.join();
+  threadB.join();
+  threadC.join();
+  threadD.join();
   return 0;
 }
