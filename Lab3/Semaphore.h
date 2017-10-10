@@ -15,7 +15,7 @@ private:
     std::condition_variable m_condition;
 
 public:
-    Semaphore(unsigned int uiCount=0)
+    Semaphore(unsigned int uiCount=1)
           : m_uiCount(uiCount) { };
     void Wait();
     template< typename R,typename P >

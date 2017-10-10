@@ -1,16 +1,17 @@
 #Mark Kelly C00198041 02/10/2017
 
-EXE = sigexe
+EXE = myMutex
 CC = g++
-CFLAGS = -std=c++11 -pthread
+CFLAGS = -std=c++11 -pthread -I.
 
-CFILES = signal.cpp Semaphore.cpp
-HFILES = Semaphore.h
+#This rule says that each .o file depends on a .cpp file of the same name
+%.o: %.cpp
+	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
 
-All: $(CFILES) $(HFILES)
-	$(CC) -g $(CFLAGS) $(DEBUGFLAGS) *.cpp -o sigexe
+All: MyMutex.o Semaphore.o
+	$(CC) $(CFLAGS) MyMutex.cpp Semaphore.cpp -o $(EXE) $(DEBUGFLAGS)
 
-DEBUG: DEBUGFLAGS = -DDEBUG
+DEBUG: DEBUGFLAGS = -g -O0
 DEBUG: ALL
 
 #this is customary and just deletes all .o files
