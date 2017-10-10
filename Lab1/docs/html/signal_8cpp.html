@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Lab 1: /home/mark/college/conDev/CDDLabs/Lab1/signal.cpp File Reference</title>
+<title>Lab 1: signal.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Lab 1
+   &#160;<span id="projectnumber">0.8</span>
    </div>
+   <div id="projectbrief">Serialization</div>
   </td>
  </tr>
  </tbody>
@@ -83,18 +85,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">/home/mark/college/conDev/CDDLabs/Lab1/signal.cpp File Reference</div>  </div>
+<div class="title">signal.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_semaphore_8h_source.html">Semaphore.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for signal.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="signal_8cpp__incl.svg" width="386" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 </div>
 <p><a href="signal_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2696073bbedb6b55e6a52d2180c2a9b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="signal_8cpp.html#a2696073bbedb6b55e6a52d2180c2a9b3">taskOne</a> (std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; theSemaphore)</td></tr>
+<tr class="memdesc:a2696073bbedb6b55e6a52d2180c2a9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_semaphore.html" title="A brief A Semaphore Implementation Uses C++11 features such as mutex and condition variables to imple...">Semaphore</a> implementation using serialization, task one must happen before task two.  <a href="#a2696073bbedb6b55e6a52d2180c2a9b3">More...</a><br /></td></tr>
 <tr class="separator:a2696073bbedb6b55e6a52d2180c2a9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4ea9570be601d182fa473c7ca431852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="signal_8cpp.html#ae4ea9570be601d182fa473c7ca431852">taskTwo</a> (std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; theSemaphore)</td></tr>
 <tr class="separator:ae4ea9570be601d182fa473c7ca431852"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,9 +143,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="class_semaphore.html" title="A brief A Semaphore Implementation Uses C++11 features such as mutex and condition variables to imple...">Semaphore</a> implementation using serialization, task one must happen before task two. </p>
 <dl class="section author"><dt>Author</dt><dd>Mark Kelly </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/10/17 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 
 <p>Definition at line <a class="el" href="signal_8cpp_source.html#l00011">11</a> of file <a class="el" href="signal_8cpp_source.html">signal.cpp</a>.</p>
 
